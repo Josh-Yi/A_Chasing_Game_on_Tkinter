@@ -1,4 +1,4 @@
-# Chase
+# A Chasing Game on Tkinter
 
 Run tkgame.py
 

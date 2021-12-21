@@ -1,3 +1,4 @@
+import io
 import  tkinter as tk
 
 import PIL
@@ -10,11 +11,12 @@ from player import player
 from env import environment
 root = tk.Tk()
 root.title('Chase 1.0')
-root.geometry('600x400')
+# canvas = tk.Canvas(root, width=600, height=600)
+# canvas.grid(columnspan=3)
 my_text = tk.Label(root, text='Chase', bg='royalblue', font=('Arial', 20), width=30, height=2)
-my_text.pack()
+my_text.grid(column=0,row=0)
 
-canva = tk.Canvas(root,bg = 'white')
+# canva = tk.Canvas(root,bg = 'white')
 
 env = environment(40,40)
 env.add_trap(80)
@@ -46,7 +48,16 @@ def func(event):
     if end==True:
         quit()
     plt.matshow(x)
-    plt.show()
+    plt.axis('off')
+    buffer_ = io.BytesIO()
+    plt.savefig(buffer_, format="png",pad_inches=0.0,bbox_inches='tight')
+    buffer_.seek(0)
+    logo = Image.open(buffer_)
+    logo = ImageTk.PhotoImage(logo)
+    buffer_.close()
+    logo_label = tk.Label(image=logo)
+    logo_label.image = logo  # Necessary, rubbish tkinker
+    logo_label.grid(columnspan=1, column=0, row=1)
 
 def quit():
     import sys

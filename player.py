@@ -1,4 +1,3 @@
-import numpy as np
 class player:
     def __init__(self, location, speed=0):
         self.loc = location

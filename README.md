@@ -2,7 +2,7 @@
 
 Run tkgame.py
 
-Chase another player without hitting the wall.
+Try to chase another player without hitting the wall.
 
 ----
 

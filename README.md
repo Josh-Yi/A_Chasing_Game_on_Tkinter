@@ -2,6 +2,8 @@
 
 Run tkgame.py
 
+The map is randomly generated.
+
 Try to chase another player without hitting the wall.
 
 ----

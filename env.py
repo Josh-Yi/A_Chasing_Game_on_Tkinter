@@ -16,15 +16,19 @@ class environment:
             for j in range(self.y_size):
                 if np.random.randint(0, 100, 1) > perc:
                     self.env_map[i][j] = 1
+        self.env_map[0:5,0:5]=np.zeros((5,5))
 
     def check_state(self):
         if self.player_list[0].loc == self.player_list[1].loc:
             print('Got you!')
             end = True
             x = self.env_map.copy()
-        elif self.env_map[self.player_list[1].loc[0],self.player_list[1].loc[1]] == 1 or \
-                self.env_map[self.player_list[0].loc[0],    self.player_list[0].loc[1]] == 1:
-            print('An ungraceful hit on the wall')
+        elif self.env_map[self.player_list[1].loc[0],self.player_list[1].loc[1]] == 1:
+            print('An ungraceful blow to the wall was delivered by player 2 ')
+            end = True
+            x = self.env_map.copy()
+        elif self.env_map[self.player_list[0].loc[0], self.player_list[0].loc[1]] == 1:
+            print('An ungraceful blow to the wall was delivered by player 1')
             end = True
             x = self.env_map.copy()
         else:

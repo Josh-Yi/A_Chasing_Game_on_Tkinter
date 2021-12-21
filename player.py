@@ -5,6 +5,5 @@ class player:
         self.speed = speed
 
     def move(self, x):
-        print(self.loc)
         self.loc[0] = x[0] + self.loc[0]
         self.loc[1] = x[1] + self.loc[1]
